@@ -152,7 +152,7 @@ const showResult = () => {
     quizScreen.style.display = 'none'
 
     resultScreen.querySelector('.correct').textContent = `
-    Correrst Answers: ${correct_answers}
+    Correct Answers: ${correct_answers}
     `
     resultScreen.querySelector('.wrong').textContent = `
     Wrong Answers: ${wrong_answers}
