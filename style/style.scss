@@ -12,10 +12,9 @@ body {
     font-family: 'Poppins', sans-serif;
     background: #161247;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     z-index: 1;
-    overflow: hidden;
     display: grid;
     place-items: center;
 
@@ -27,8 +26,6 @@ body {
         content: "";
         width: 100%;
         height: 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
         z-index: -1;
         animation: Circle 6s forwards;
     }
@@ -40,11 +37,11 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    height: calc(100% - 70px);
+    height: 100%;
     display: grid;
     place-items: center;
     transition: 1000ms all;
-    animation: slideIn 5s forwards;
+    animation: slideIn 5s forwards; 
 
     &.active {
         visibility: hidden;
@@ -52,6 +49,7 @@ body {
         top: 0;
         left: 0;
         transform: scale(0);
+
     }
 
     .content {
@@ -114,7 +112,7 @@ body {
     }
 
     to {
-        transform: scale(1.1);
+        transform: scale(1);
         top: 0;
         left: 0;
     }
@@ -135,7 +133,7 @@ body {
     top: 50%;
     left: 50%;
     width: 100%;
-    height: calc(100% - 70px);
+    height: 100%;
     transform: translate(-50%, -50%);
     display: grid;
     place-items: center;
@@ -246,7 +244,7 @@ body {
     top: 50%;
     left: 50%;
     width: 100%;
-    height: calc(100% - 70px);
+    height: 100%;
     transform: translate(-50%, -50%);
     display: none;
     place-items: center;
