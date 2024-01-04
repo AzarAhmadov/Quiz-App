@@ -16,7 +16,7 @@ Live demo : https://quizjs0.vercel.app/
 - Html5
 
 ## Contributing
-If you'd like to contribute to this project, please open an issue or create a pull request. We appreciate feedback and contributions from the community.
+If you'd like to contribute to this project, please open an issue or create a pull request.
 
 ## Deployment
 Quizjs0 is deployed on Vercel, a popular platform for hosting web applications.
