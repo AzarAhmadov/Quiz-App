@@ -250,7 +250,7 @@ body::after {
   font-size: 18px;
   cursor: pointer;
   transition: 400ms all;
-  transition: 400ms all;
+  color: #000;
 }
 .result .container .again button:hover {
   transform: scale(1.1);
