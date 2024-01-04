@@ -1,413 +1,354 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Spicy+Rice&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Spicy+Rice&display=swap");
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    list-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
 }
 
 html,
 body {
-    font-family: 'Poppins', sans-serif;
-    background: #161247;
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-    display: grid;
-    place-items: center;
-
-    &::after {
-        background: #272157;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        content: "";
-        width: 100%;
-        height: 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        z-index: -1;
-        animation: Circle 6s forwards;
-    }
+  font-family: "Poppins", sans-serif;
+  background: #161247;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+html::after,
+body::after {
+  background: #272157;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+  animation: Circle 6s forwards;
 }
 
 .modal {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: calc(100% - 70px);
-    display: grid;
-    place-items: center;
-    transition: 1000ms all;
-    animation: slideIn 5s forwards;
-
-    &.active {
-        visibility: hidden;
-        opacity: 0;
-        top: 0;
-        left: 0;
-        transform: scale(0);
-    }
-
-    .content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        & img {
-            object-fit: cover;
-            height: 200px;
-            width: 370px;
-        }
-
-        & h1 {
-            margin-top: 20px;
-            color: #fff;
-            text-align: center;
-            font-size: 56px;
-            font-style: normal;
-            font-weight: 400;
-            font-family: 'Spicy Rice', serif;
-        }
-
-        & p {
-            color: #fff;
-            text-align: center;
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 400;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        & button {
-            margin-top: 25px;
-            width: 235px;
-            height: 56px;
-            padding: 10px;
-            border-radius: 360px;
-            border: 1px solid #FFF;
-            background: transparent;
-            color: #fff;
-            font-family: 'Poppins', sans-serif;
-            font-size: 19px;
-            transition: 200ms all;
-            cursor: pointer;
-
-            &:hover {
-                background: #fff;
-                color: #000;
-            }
-        }
-    }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: calc(100% - 70px);
+  display: grid;
+  place-items: center;
+  transition: 1000ms all;
+  animation: slideIn 5s forwards;
+}
+.modal.active {
+  visibility: hidden;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  transform: scale(0);
+}
+.modal .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.modal .content img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 200px;
+  width: 370px;
+}
+.modal .content h1 {
+  margin-top: 20px;
+  color: #fff;
+  text-align: center;
+  font-size: 56px;
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Spicy Rice", serif;
+}
+.modal .content p {
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+.modal .content button {
+  margin-top: 25px;
+  width: 235px;
+  height: 56px;
+  padding: 10px;
+  border-radius: 360px;
+  border: 1px solid #FFF;
+  background: transparent;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 19px;
+  transition: 200ms all;
+  cursor: pointer;
+}
+.modal .content button:hover {
+  background: #fff;
+  color: #000;
 }
 
 @keyframes slideIn {
-    from {
-        transform: scale(0.50);
-        top: 0;
-        left: 0;
-    }
-
-    to {
-        transform: scale(1.1);
-        top: 0;
-        left: 0;
-    }
+  from {
+    transform: scale(0.5);
+    top: 0;
+    left: 0;
+  }
+  to {
+    transform: scale(1.1);
+    top: 0;
+    left: 0;
+  }
 }
-
 @keyframes Circle {
-    from {
-        width: 0;
-    }
-
-    to {
-        width: 100%;
-    }
-}
-
-.quiz {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+  from {
+    width: 0;
+  }
+  to {
     width: 100%;
-    height: calc(100% - 70px);
-    transform: translate(-50%, -50%);
-    display: grid;
-    place-items: center;
-    padding: 20px;
-
-    .numberQuestions {
-        position: absolute;
-        left: 15px;
-        bottom: 15px;
-        color: #fff;
-        font-family: 'Poppins', sans-serif;
-    }
-
-    .container {
-        width: 100%;
-        max-width: 550px;
-        border-radius: 10px;
-        padding: 30px 30px 50px;
-        background-color: hsla(0, 0%, 100%, 0.235);
-        backdrop-filter: blur(5px);
-
-        & h3 {
-            margin-bottom: 30px;
-            color: #fff;
-            text-align: center;
-            font-family: 'Poppins', sans-serif;
-            font-size: 28px;
-            line-height: 34px;
-            font-weight: 500;
-        }
-
-        .quiz-row {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            place-items: center;
-            gap: 15px;
-
-            .answer {
-                border-radius: 12px;
-                border: 1px solid rgba(255, 255, 255, 0.40);
-                display: flex;
-                transition: 400ms all;
-                width: 100%;
-
-                &.active {
-                    border: 1px solid #FFF;
-                    background: #FFF;
-                    box-shadow: 0px 0px 19px 0px rgba(255, 255, 255, 0.25);
-                    transform: scale(0.98);
-
-                    & label {
-                        color: #041984;
-                    }
-                }
-
-                & input {
-                    opacity: 0;
-                }
-
-                &:hover {
-                    border: 1px solid #FFF;
-                    background: #FFF;
-                    box-shadow: 0px 0px 19px 0px rgba(255, 255, 255, 0.25);
-                    transform: scale(0.98);
-                }
-
-                &:hover label {
-                    color: #041984;
-                }
-
-                & label {
-                    margin-left: -10px;
-                    color: #fff;
-                    width: 100%;
-                    padding: 10px 20px;
-                    font-family: 'Poppins', sans-serif;
-                    cursor: pointer;
-                }
-            }
-        }
-
-        .check {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-
-            #submit {
-                border-radius: 30px;
-                padding: 10px 40px;
-                font-family: 'Poppins', sans-serif;
-                border: none;
-                font-size: 18px;
-                cursor: pointer;
-                transition: 400ms all;
-
-                &:hover {
-                    transform: scale(1.1);
-                }
-            }
-        }
-    }
+  }
+}
+.quiz {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: calc(100% - 70px);
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+.quiz .numberQuestions {
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+.quiz .container {
+  width: 100%;
+  max-width: 550px;
+  border-radius: 10px;
+  padding: 30px 30px 50px;
+  background-color: hsla(0, 0%, 100%, 0.235);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.quiz .container h3 {
+  margin-bottom: 30px;
+  color: #fff;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 500;
+}
+.quiz .container .quiz-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  gap: 15px;
+}
+.quiz .container .quiz-row .answer {
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  display: flex;
+  transition: 400ms all;
+  width: 100%;
+}
+.quiz .container .quiz-row .answer.active {
+  border: 1px solid #FFF;
+  background: #FFF;
+  box-shadow: 0px 0px 19px 0px rgba(255, 255, 255, 0.25);
+  transform: scale(0.98);
+}
+.quiz .container .quiz-row .answer.active label {
+  color: #041984;
+}
+.quiz .container .quiz-row .answer input {
+  opacity: 0;
+}
+.quiz .container .quiz-row .answer:hover {
+  border: 1px solid #FFF;
+  background: #FFF;
+  box-shadow: 0px 0px 19px 0px rgba(255, 255, 255, 0.25);
+  transform: scale(0.98);
+}
+.quiz .container .quiz-row .answer:hover label {
+  color: #041984;
+}
+.quiz .container .quiz-row .answer label {
+  margin-left: -10px;
+  color: #fff;
+  width: 100%;
+  padding: 10px 20px;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+}
+.quiz .container .check {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.quiz .container .check #submit {
+  border-radius: 30px;
+  padding: 10px 40px;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 400ms all;
+}
+.quiz .container .check #submit:hover {
+  transform: scale(1.1);
 }
 
 .result {
-    position: absolute;
-    top: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: calc(100% - 70px);
+  transform: translate(-50%, -50%);
+  display: none;
+  place-items: center;
+  padding: 20px;
+}
+.result .container {
+  width: 100%;
+  max-width: 550px;
+  border-radius: 10px;
+  padding: 25px 20px;
+  background-color: hsla(0, 0%, 100%, 0.235);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
+.result .container .again {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.result .container .again button {
+  border-radius: 30px;
+  padding: 10px 40px;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 400ms all;
+  transition: 400ms all;
+}
+.result .container .again button:hover {
+  transform: scale(1.1);
+}
+.result .container h4 {
+  margin-bottom: 30px;
+  color: #fff;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.result .container h4 svg {
+  margin-left: 10px;
+  fill: #fff;
+  width: 30px;
+  height: 30px;
+}
+.result .container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.result .container ul li {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 23px;
+  font-weight: 500;
+}
+.result .container ul li.correct {
+  color: #0fc45a;
+}
+.result .container ul li.wrong {
+  color: #e04837;
+}
+
+@media only screen and (max-width: 578px) {
+  .modal .content img {
+    width: 290px;
+  }
+  .modal .content h1 {
+    margin-top: 0;
+    font-size: 56px;
+  }
+  .modal .content button {
+    width: 215px;
+    height: 50px;
+  }
+  .quiz {
+    padding: 30px;
+  }
+  .quiz .container .numberQuestions {
     left: 50%;
-    width: 100%;
-    height: calc(100% - 70px);
-    transform: translate(-50%, -50%);
-    display: none;
-    place-items: center;
-    padding: 20px;
-
-    .container {
-        width: 100%;
-        max-width: 550px;
-        border-radius: 10px;
-        padding: 25px 20px;
-        background-color: hsla(0, 0%, 100%, 0.235);
-        backdrop-filter: blur(5px);
-
-        .again {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-
-            & button {
-                border-radius: 30px;
-                padding: 10px 40px;
-                font-family: 'Poppins', sans-serif;
-                border: none;
-                font-size: 18px;
-                cursor: pointer;
-                transition: 400ms all;
-                transition: 400ms all;
-
-                &:hover {
-                    transform: scale(1.1);
-                }
-            }
-
-        }
-
-        & h4 {
-            margin-bottom: 30px;
-            color: #fff;
-            text-align: center;
-            font-family: 'Poppins', sans-serif;
-            font-size: 28px;
-            line-height: 34px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            & svg {
-                margin-left: 10px;
-                fill: #fff;
-                width: 30px;
-                height: 30px;
-            }
-        }
-
-        & ul {
-            display: flex;
-            flex-direction: column;
-            gap: 13px;
-
-            & li {
-                color: #fff;
-                font-family: 'Poppins', sans-serif;
-                font-size: 23px;
-                font-weight: 500;
-
-                &.correct {
-                    color: #0fc45a
-                }
-
-                &.wrong {
-                    color: #e04837
-                }
-            }
-        }
-    }
-}
-
-@media only screen and (max-width:578px) {
-    .modal {
-        .content {
-
-            & img {
-                width: 290px;
-            }
-
-            & h1 {
-                margin-top: 0;
-                font-size: 56px;
-            }
-
-            & button {
-                width: 215px;
-                height: 50px;
-            }
-        }
-    }
-
-    .quiz {
-        padding: 30px;
-
-        .container {
-            .numberQuestions {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-
-            & h3 {
-                margin-bottom: 25px;
-                font-size: 22px;
-                line-height: 28px;
-            }
-
-            .quiz-row {
-                text-align: center;
-                grid-template-columns: repeat(1, 1fr);
-            }
-
-            .check {
-                margin-top: 25px;
-
-                #submit {
-                    padding: 10px 30px;
-                    font-size: 17px;
-                }
-            }
-        }
-    }
-
-    .result {
-        padding: 30px;
-
-        .container {
-            .again {
-                display: flex;
-                justify-content: center;
-                margin-top: 25px;
-
-                & button {
-                    font-size: 17px;
-                    padding: 10px 30px;
-                }
-
-            }
-
-            & h4 {
-                margin-bottom: 25px;
-                font-size: 23px;
-
-                & svg {
-                    width: 25px;
-                    height: 25px;
-                }
-            }
-
-            & ul {
-                gap: 10px;
-
-                & li {
-                    font-size: 20px;
-                }
-            }
-        }
-    }
-}
+    transform: translateX(-50%);
+  }
+  .quiz .container h3 {
+    margin-bottom: 25px;
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .quiz .container .quiz-row {
+    text-align: center;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .quiz .container .check {
+    margin-top: 25px;
+  }
+  .quiz .container .check #submit {
+    padding: 10px 30px;
+    font-size: 17px;
+  }
+  .result {
+    padding: 30px;
+  }
+  .result .container .again {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+  }
+  .result .container .again button {
+    font-size: 17px;
+    padding: 10px 30px;
+  }
+  .result .container h4 {
+    margin-bottom: 25px;
+    font-size: 23px;
+  }
+  .result .container h4 svg {
+    width: 25px;
+    height: 25px;
+  }
+  .result .container ul {
+    gap: 10px;
+  }
+  .result .container ul li {
+    font-size: 20px;
+  }
+}/*# sourceMappingURL=style.css.map */
