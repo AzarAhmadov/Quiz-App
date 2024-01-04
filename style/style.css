@@ -211,6 +211,7 @@ body::after {
   font-size: 18px;
   cursor: pointer;
   transition: 400ms all;
+  color: #000;
 }
 .quiz .container .check #submit:hover {
   transform: scale(1.1);
